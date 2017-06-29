@@ -17,6 +17,7 @@ do
   INSTANCE_PUBLIC_DNS=$(aws ec2 describe-instances --instance-ids $instance | jq ".Reservations[].Instances[].PublicDnsName" | tr -d '"')
   echo "Connecting to $INSTANCE_PUBLIC_DNS $SSH_OPTIONS..."
   ssh -i $SSH_OPTIONS $SSH_USER@$INSTANCE_PUBLIC_DNS << ENDSSH
+    cd $(echo $PATH_REMOTE_CODE)
     $COMMAND
 ENDSSH
 done
