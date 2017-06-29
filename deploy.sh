@@ -1,4 +1,5 @@
 #!/bin/sh
+clear
 source config.shlib;
 START=$(date +%s)
 
