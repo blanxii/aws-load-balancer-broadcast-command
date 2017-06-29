@@ -9,12 +9,15 @@
 
 ## Configuration
 
-Replace the following in the command:
+Remember you should give permission to deploy.sh file like `chmod 777 deploy.sh`
 
-* `LoadBalancerName` in the script with your LB.
-* `SERVER_PATH='/<path-to-your-code>'` with the path you want to navigate
-* `default-user-of-your-instance` with your user to connect to your instance like `ubuntu`
-* `git pull origin master` with your own deploy script system.
+Create `config.cfg` file and add your variables on it.
+
+* `LB_NAME` with your LB.
+* `PATH_REMOTE_CODE` with the path you want to navigate
+* `SSH_USER` with your user to connect to your instance like `ubuntu`
+* `SSH_OPTIONS` if you need to set custom variables like .pem file
+* `COMMAND` with your own deploy script system like `git pull origin master`
 
 
 You can use this script to broadcast a command to your LB instances.

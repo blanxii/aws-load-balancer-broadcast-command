@@ -1,0 +1,5 @@
+LB_NAME=LoadBalancerName
+PATH_REMOTE_CODE=/
+SSH_USER=ubuntu
+COMMAND=git pull origin master && composer install
+SSH_OPTIONS=
