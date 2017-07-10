@@ -15,7 +15,7 @@ INSTANCES_STR=$(echo $LB | jq ".LoadBalancerDescriptions[].Instances[].InstanceI
 for instance in $INSTANCES_STR
 do
   INSTANCE_PUBLIC_DNS=$(aws ec2 describe-instances --instance-ids $instance | jq ".Reservations[].Instances[].PublicDnsName" | tr -d '"')
-  echo "Connecting to $INSTANCE_PUBLIC_DNS $SSH_OPTIONS..."
+  echo "Connecting using ssh -i $SSH_OPTIONS $SSH_USER@$INSTANCE_PUBLIC_DNS..."
   ssh -i $SSH_OPTIONS $SSH_USER@$INSTANCE_PUBLIC_DNS << ENDSSH
     cd $(echo $PATH_REMOTE_CODE)
     $COMMAND
